@@ -1,0 +1,78 @@
+<div class="container mt-4">
+    <h3>All Orders</h3>
+
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">User_ID</th>
+                <th scope="col">Price</th>
+                <th scope="col">Status</th>
+                <th scope="col" colspan ="2">Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each order}}
+            <tr>
+                <th scope="row">1</th>
+                <td>{{this.user_id}}</td>
+                <td>{{this.total}}</td>
+                <td>{{this.status}}</td>
+                <td>{{this.created_at}}</td>
+                <td>
+                    <a href="/courses/{{this._id}}/edit" class="btn btn-link">Edit</a>
+                    <a href="" class="btn btn-link" data-bs-toggle="modal" data-id="{{this._id}}" data-bs-target="#delete-modal">Delete</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+{{!--Confirm delete--}}
+<div id="delete-modal" class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete this?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure?</p>
+      </div>
+      <div class="modal-footer">
+        <button id="btn-delete-item"type="button" class="btn btn-secondary" data-bs-dismiss="modal">Delete</button>
+        <button type="button" class="btn btn-primary">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{!--Delete form --}}
+<form id = "delete-item-form" name ="delete-item-form"method="POST"></form>
+
+
+<script>
+    const exampleModal = document.getElementById('delete-modal')
+    var recipient
+    var deleteForm = document.getElementById('delete-item-form')
+    var btnDeleteItem = document.getElementById('btn-delete-item')
+    if (exampleModal) {
+    exampleModal.addEventListener('show.bs.modal', event => {
+        // Button that triggered the modal
+        const button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        recipient = button.getAttribute('data-id')
+        console.log(recipient)
+        
+    })
+    }
+
+    if (btnDeleteItem) {
+    btnDeleteItem.onclick = function() {
+        if (recipient) {
+            deleteForm.action = `/courses/${recipient}?_method=DELETE`;
+            deleteForm.submit(); // Submit the form after setting the action
+        }
+    };
+}
+</script>

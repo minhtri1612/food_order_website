@@ -1,0 +1,26 @@
+<div class="mt-4">
+    <h3>Items</h3>
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col" colspan="2">Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each item}}
+            <tr>
+                <th scope="row">{{@index}}</th>
+                <td>{{this.name}}</td>
+                <td>{{this.description}}</td>
+                <td>{{this.price}}</td>
+                <td><a href="/item/edit/{{this.slug}}" class="btn btn-primary">Edit</a></td>
+                <td><a href="/item/delete/{{this.id}}" class="btn btn-danger">Delete</a></td>
+            </tr>
+            {{/each}}
+        
+        </tbody>
+    </table>
+</div>

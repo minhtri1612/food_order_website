@@ -1,0 +1,118 @@
+<div class="track-order-container">
+  <h2 class="track-order-title">ORDER TRACKING</h2>
+  <div class="track-order-underline"></div>
+
+  <!-- Order Summary Box -->
+  <div class="order-summary-box">
+    <div class="order-summary-item">
+      <div class="order-summary-label">ORDER PLACED</div>
+      <div class="order-summary-value">14 Jan.</div>
+    </div>
+    <div class="order-summary-item">
+      <div class="order-summary-label">TOTAL</div>
+      <div class="order-summary-value">{{cart.[0].total}}</div>
+    </div>
+    <div class="order-summary-item">
+      <div class="order-summary-label">SHIP TO</div>
+      <div class="order-summary-value">{{cart.[0].username}}</div>
+    </div>
+    <div class="order-summary-item">
+      <div class="order-summary-label">ORDER</div>
+      <div class="order-summary-value">#1008</div>
+    </div>
+  </div>
+
+  <!-- Order Status -->
+  <div class="order-status">
+    <div class="order-status-label">Order Status: <span class="order-status-shipped">Delivering</span></div>
+    <div class="order-status-estimate">Estimated Delivery Time: 5:15 pm</div>
+  </div>
+
+  <!-- Progress Bar -->
+  <div class="order-progress-bar" data-step="3">
+    <div class="order-progress-line">
+      <div class="order-progress-line-bg"></div>
+      <div class="order-progress-fill"></div>
+      <div class="order-progress-step step-1"><i class="fa fa-check"></i></div>
+      <div class="order-progress-step step-2"><i class="fa fa-truck"></i></div>
+      <div class="order-progress-step step-3"><i class="fa fa-box"></i></div>
+      <div class="order-progress-step step-4"><i class="fa fa-flag"></i></div>
+    </div>
+    <div class="order-progress-labels">
+      <div class="order-progress-label">Order Placed<br><span>4:30 pm</span></div>
+      <div class="order-progress-label">Dispatched<br><span>4:40 pm</span></div>
+      <div class="order-progress-label">Delivering<br><span>4:50 pm</span></div>
+      <div class="order-progress-label">Delivered<br><span>5:15 pm</span></div>
+    </div>
+  </div>
+
+  <!-- Shipping Info and Map -->
+  <div class="order-shipping-map-row">
+    <div class="shipping-info">
+      <div class="shipping-info-title">SHIPPING INFORMATION</div>
+      {{#each cart}}
+      <div class="shipping-info-details">
+        {{this.user_id}}<br>
+        {{this.street}}<br>
+        {{this.city}}<br>
+        {{this.postal}}<br>
+        
+        <br>
+        <span class="shipping-courier">Courier:</span> FOODZIE<br>
+        <span class="shipping-courier">Tracking Link:</span> <a href="#" class="shipping-tracking-link">FZ045903594059</a>
+      </div>
+      {{/each}}
+    </div>
+    <div class="order-map">
+      <iframe src="https://www.google.com/maps?q=Hương+Quê+Vegan&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</div>
+
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  // Set progress bar state based on data-step
+  const bar = document.querySelector('.order-progress-bar');
+  const step = parseInt(bar.getAttribute('data-step'), 10) || 1;
+  const fill = bar.querySelector('.order-progress-fill');
+  const steps = bar.querySelectorAll('.order-progress-step');
+  // Always show 4 steps, always yellow for first
+  steps.forEach((el, idx) => {
+    el.classList.remove('active');
+    if (idx === 0) {
+      el.classList.add('active'); // Always yellow
+    } else if (idx < step) {
+      el.classList.add('active');
+    }
+  });
+  // Animate fill width
+  const fillPercents = [0, 0.33, 0.66, 1];
+  fill.style.width = (fillPercents[Math.max(0, step-1)] * 100) + '%';
+});
+</script>
+
+<style>
+  .order-progress-label, .order-progress-date, .order-progress-labels span, .order-progress-labels div {
+    font-size: 2.0rem !important;
+  }
+  .order-summary-title, .order-summary-date, .order-summary-total, .order-summary-shipto, .order-summary-orderid {
+    font-size: 2.0rem !important;
+  }
+  .order-progress-step {
+    top: 0;
+    transform: translateY(-50%);
+  }
+  .order-progress-step.step-1 {
+    left: 0;
+  }
+  .order-progress-step.step-2 {
+    left: 33%;
+  }
+  .order-progress-step.step-3 {
+    left: 66%;
+  }
+  .order-progress-step.step-4 {
+    left: 100%;
+    transform: translate(-50%, -50%);
+  }
+</style> 

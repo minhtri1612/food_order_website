@@ -1,0 +1,61 @@
+{{!-- <header class ="header fixed">
+  <div class ="main-content">
+    <div class = "body">
+      <img src="/img/Logo-no-slogan 1.svg" alt="Foodzie Logo" class="logo" />
+      <nav class="nav">
+        <ul>
+          <li class="active"><a href="#!" class="nav-link active">Home</a></li>
+          <li><a href="/menu" class="nav-link px-2 {{isActive currentPath '/menu' '/item'}}">Browse Menu</a></li>
+          <li><a href="#!" class="nav-link">Restaurants</a></li>
+          <li><a href="#!" class="nav-link">Track Order</a></li>
+          <li><a href="#!" class="nav-link">Support</a></li>
+        </ul>
+      </nav>
+      <a href="#!" class="login-signup">Login/Signup</a>
+    </div>
+  </div>
+</header>  --}}
+
+
+
+<header class="header fixed">
+  <div class="main-content">
+    <div class="body d-flex align-items-center justify-content-between">
+      <!-- Logo -->
+      <div>
+        <img src="/img/Logo-no-slogan 1.svg" alt="Foodzie Logo" class="logo mb-3" />
+      </div>
+
+      <!-- Navigation -->
+      <div class="flex-grow-1 nav-move">
+        <nav class="nav">
+          <ul class="nav">
+            <li class="nav-item">
+              <a href="/public" class="nav-link px-2 {{isActive currentPath '/public'}}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="/menu" class="nav-link px-2 {{isActive currentPath '/menu' '/item'}}">Browse Menu</a>
+            </li>
+            <li class="nav-item">
+              <a href="/cart" class="nav-link px-2 {{isActive currentPath '/cart'}}">Track Order</a>
+            </li>
+            <li class="nav-item">
+              <a href="#!" class="nav-link px-2 {{isActive currentPath '/support'}}">Support</a>
+            </li>
+          </ul>
+        </nav>
+       
+      </div>
+
+      <!-- Login/Signup Button -->
+      <a href="/login" class="login-signup">Login/Signup</a>
+    </div>
+  </div>
+</header>
+
+
+
+
+
+
+

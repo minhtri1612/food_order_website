@@ -1,0 +1,24 @@
+<section class="suggestion">
+    <h2 class="Suggestion-title">What to Eat Today</h2>
+    <div class="suggestion-container">
+        {{#each suggestions}}
+        <div class="suggestion-card">
+            <img src="{{image}}" class="suggestion-img w-100" alt="{{name}}">
+            <div class="p-3">
+                <h3 style ="margin-bottom:5px" class="suggestion-title">{{name}}</h3>
+                <p style ="margin-bottom:5px" class="text-muted">{{description}}</p>
+                <p style ="margin-bottom:5px" class="suggestion-price">${{price}}</p>
+            <button  class="btn btn-primary order-now-btn"
+                data-id="{{id}}"
+                data-name="{{name}}"
+                data-image="{{image}}"
+                data-price="{{price}}"
+                >
+                Order Now
+            </button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</section>
+

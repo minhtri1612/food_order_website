@@ -1,0 +1,13 @@
+<section class="popular-restaurants">
+  <div class="main-content">
+    <h2 class="section-title">Popular Restaurants</h2>
+    <div class="restaurants-grid">
+      {{#each restaurants}}
+        <div class="restaurant-card">
+          <img src="{{this.image}}" alt="{{this.name}}" />
+          <p>{{this.name}}</p>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</section>

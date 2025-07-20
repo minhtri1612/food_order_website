@@ -1,0 +1,9 @@
+.admin-dropdown-menu {
+  left: -90px !important;
+  border-radius: 25px;
+}
+
+.create-btn{
+    position: relative;
+    margin-top: 10px;
+}

@@ -1,0 +1,18 @@
+<section class="categories">
+  <div class="main-content">
+    <h2 class="categories-title">
+      Popular Categories <span>😋</span>
+    </h2>
+    <div class="categories-grid">
+      {{#each categories}}
+        <div class="category-card">
+          <img src="{{this.image_url}}" alt="{{this.category_name}}" />
+          <div class="category-info">
+            <h3>{{this.category_name}}</h3>
+            
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+</section>

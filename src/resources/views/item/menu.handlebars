@@ -1,0 +1,52 @@
+<div class="container2">
+  <section class="menu-section">
+    <div class="container-fluid">
+      <h2 class="section-title">Our Delicious Menu</h2>
+      <div class="row">
+        <!-- Category List -->
+        <div class="col-md-2 category-sidebar">
+          <nav class="category-nav" role="tablist">
+            <a class="category-btn {{isActive currentPath '/menu'}}" href="/menu" data-category="all" aria-selected="true">All</button>
+            <a class="category-btn {{isActive currentPath '/category/chicken'}}" href="/category/chicken" data-category="friedchicken" aria-selected="false">Fried Chicken</a>
+            <a class="category-btn {{isActive currentPath '/category/burger'}}" href="/category/burger" data-category="burger" aria-selected="false">Burger</a>
+            <a class="category-btn {{isActive currentPath '/category/noodle'}}" href="/category/noodle" data-category="noodle" aria-selected="false">Noodle</a>
+            <a class="category-btn {{isActive currentPath '/category/frenchfried'}}" href="/category/frenchfried" data-category="frenchfried" aria-selected="false">French Fried</a>
+            <a class="category-btn {{isActive currentPath '/category/drinks'}}" href="/category/drinks" data-category="drinks" aria-selected="false">Drinks</a>
+          </nav>
+        </div>
+        <!-- Menu Items -->
+        <div class="col-md-10 menu-content listProduct">
+          <div class="row" id="menu-items">
+            {{#each items}}
+            <div class="col-lg-4 col-md-6 menu-card" data-category="{{this.category}}">
+              <a href="/menu/{{this.slug}}">
+              <img src="{{this.image}}" alt="{{this.name}}">
+              </a>
+              <div class="menu-card-body">
+                <h5 class="menu-card-title">{{this.name}}</h5>
+                <p class="menu-card-text">{{this.description}}</p>
+                <p class="menu-card-price">${{this.price}}</p>
+                <a class="btn btn-order-now" data-id ="{{this.id}}"
+                data-name="{{this.name}}" data-image="{{this.image}}" data-price="{{this.price}}">Chọn món</a>
+              </div>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div> 
+  </section>
+
+  {{!-- <div class="cartTab">
+    <h1>Shopping Cart</h1>
+      <div class="listCart">
+        <div class="item">
+         
+        </div>
+      </div>
+      <div class="btn">
+        <button class="close">CLOSE</button>
+        <button class="checkOut" id="checkout-btn">CHECK Out</button>
+      </div>
+  </div> --}}
+</div>

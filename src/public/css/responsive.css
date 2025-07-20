@@ -1,0 +1,142 @@
+/*=============== Mobile (up to 768px) ===============*/
+@media screen and (max-width: 768px) {
+  /* Adjust container widths for mobile */
+  .container,
+  .main-content,
+  .footer-container,
+  .hero-banner {
+    max-width: 100%;
+    padding: 0 8px;
+    margin: 0 auto;
+  }
+
+  /* Top Bar: use column layout; center all content */
+  .top-bar {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  /* Navigation: convert menu to vertical list */
+  .nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Hero Banner: change layout to stack content */
+  .hero-banner {
+    height: auto;
+    padding: 20px 0;
+  }
+  .hero-content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  .hero-left {
+    padding-left: 0;
+    align-items: center;
+  }
+  .search-bar {
+    width: 100%;
+  }
+  
+  /* For grids (Exclusive Deals, Categories, Restaurants): use one column */
+  .cards,
+  .categories-grid,
+  .restaurants-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Add spacing between sections */
+  section:not(:last-child) {
+    margin-bottom: 40px;
+  }
+  
+  /* Footer: center all content */
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  /* If footer-middle uses flex, change it to a column */
+  .footer-middle {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/*=============== Tablet (769px to 1024px) ===============*/
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .container,
+  .main-content,
+  .footer-container {
+    max-width: 90%;
+    padding: 0 12px;
+    margin: 0 auto;
+  }
+
+  /* Adjust navigation gap */
+  .nav ul {
+    gap: 16px;
+  }
+  
+  /* Hero Banner: adjust padding and height */
+  .hero-banner {
+    height: auto;
+    padding: 30px 0;
+  }
+  .hero-content {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  /* Use two-column layout for grids */
+  .cards,
+  .categories-grid,
+  .restaurants-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Center footer-middle items */
+  .footer-middle {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+/*=============== Desktop (1025px and up) ===============*/
+@media screen and (min-width: 1025px) {
+  .container,
+  .main-content,
+  .footer-container,
+  .hero-banner {
+    max-width: 1528px;
+    padding: 16px;
+    margin: 0 auto;
+  }
+  
+  /* Hero Banner remains at a fixed height on desktop */
+  .hero-banner {
+    height: 610px;
+  }
+  
+  /* Use three-column layout for grids */
+  .cards,
+  .categories-grid,
+  .restaurants-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Footer-middle: display items in a row */
+  .footer-middle {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+ 
+}

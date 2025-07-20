@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+body{background-color: #eeeeee;font-family: 'Open Sans',serif}
+
+.card{position: relative;display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-orient: vertical;-webkit-box-direction: normal;-ms-flex-direction: column;flex-direction: column;min-width: 0;word-wrap: break-word;background-color: #fff;background-clip: border-box;border: 1px solid rgba(0, 0, 0, 0.1);border-radius: 0.10rem}.card-header:first-child{border-radius: calc(0.37rem - 1px) calc(0.37rem - 1px) 0 0}.card-header{padding: 0.75rem 1.25rem;margin-bottom: 0;background-color: #fff;border-bottom: 1px solid rgba(0, 0, 0, 0.1)}.track{position: relative;background-color: #ddd;height: 7px;display: -webkit-box;display: -ms-flexbox;display: flex;margin-bottom: 60px;margin-top: 50px;gap: 0}.track .step{-webkit-box-flex: 1;-ms-flex-positive: 1;flex-grow: 1;width: 25%;margin-top: -18px;text-align: center;position: relative}.track .step.active:before{background: #FFD95E;}.track .step::before{height: 7px;position: absolute;content: "";width: 100%;left: 0;top: 18px}.track .step.active .icon{background: #FFD95E;color: #fff}.track .icon{display: inline-block;width: 40px;height: 40px;line-height: 40px;position: relative;border-radius: 100%;background: #ddd}.track .step.active .text{font-weight: 400;color: #000}.track .text{display: block;margin-top: 18px;font-size: 25px;font-family: 'Poppins', sans-serif;font-weight: 500;color: #423c3c}.itemside{position: relative;display: -webkit-box;display: -ms-flexbox;display: flex;width: 100%}.itemside .aside{position: relative;-ms-flex-negative: 0;flex-shrink: 0}.img-sm{width: 80px;height: 80px;padding: 7px}ul.row, ul.row-sm{list-style: none;padding: 0}.itemside .info{padding-left: 15px;padding-right: 7px}.itemside .title{display: block;margin-bottom: 5px;color: #212529}p{margin-top: 0;margin-bottom: 1rem}.btn-warning{color: #ffffff;background-color: #FFD95E;border-color: #FFD95E;border-radius: 1px}.btn-warning:hover{color: #423c3c;background-color: #FFD95E;border-color: #FFD95E;border-radius: 1px}
+
+/* Add more gap below the track bar and above the order items */
+ul.row {margin-top: 40px; margin-bottom: 30px;}
+
+/* Add more gap above the track bar */
+.card-body > .track {margin-bottom: 40px; margin-top: 40px;}
+
+body {
+  background: #f3f3f3;
+}
+
+.track-order-container {
+  max-width: 1528px;
+  margin: 50px auto 50px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.04);
+  padding: 40px 32px 32px 32px;
+}
+
+.track-order-title {
+  text-align: center;
+  letter-spacing: 0.18em;
+  font-size: 2.6rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.track-order-underline {
+  width: 60px;
+  height: 3px;
+  background: #FFD95E;
+  margin: 0 auto 32px auto;
+  border-radius: 2px;
+}
+
+.order-summary-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 24px 32px;
+  margin-bottom: 32px;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.03);
+}
+.order-summary-item {
+  text-align: center;
+  flex: 1;
+}
+.order-summary-label {
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #888;
+  font-size: 1.1rem;
+}
+.order-summary-value {
+  margin-top: 6px;
+  color: #222;
+  font-size: 1.1rem;
+}
+
+.order-status {
+  text-align: center;
+  margin-bottom: 18px;
+}
+.order-status-label {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #222;
+}
+.order-status-shipped {
+  color: #43a047;
+  font-weight: 700;
+}
+.order-status-estimate {
+  margin-top: 8px;
+  color: #888;
+  font-size: 1.2rem;
+}
+
+.order-progress-bar {
+  margin: 40px 0 32px 0;
+  width: 100%;
+  max-width: 1528px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.order-progress-line {
+  position: relative;
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: visible;
+}
+.order-progress-line .order-progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #FFD95E;
+  border-radius: 4px;
+  z-index: 1;
+}
+.order-progress-step {
+  position: absolute;
+  top: 50%;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  background: #eee;
+  transform: translateY(-50%);
+  color: #888;
+  font-size: 1.4rem;
+  z-index: 2;
+}
+.order-progress-step.active {
+  background: #FFD95E;
+  color: #fff;
+  transition: background 0.4s, color 0.4s;
+}
+.order-progress-step.animated {
+  transform: none;
+  box-shadow: none;
+}
+.order-progress-step:first-child,
+.order-progress-step:first-child.active {
+  background: #FFD95E;
+  color: #fff;
+}
+.order-progress-step:nth-child(1) { left: 0; }
+.order-progress-step:nth-child(2) { left: 33%; }
+.order-progress-step:nth-child(3) { left: 66%; }
+
+.order-progress-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 36px;
+}
+.order-progress-label {
+  flex: 1;
+  text-align: center;
+  color: #222;
+  font-size: 1.1rem;
+}
+.order-progress-label:first-child { text-align: left; }
+.order-progress-label:last-child { text-align: right; }
+.order-progress-date {
+  font-weight: 700;
+  margin-top: 2px;
+}
+
+.order-shipping-map-row {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  margin-top: 32px;
+}
+.shipping-info {
+  flex: 1;
+  font-size: 1.2rem;
+}
+.shipping-info-title {
+  font-size: 1.4rem;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #222;
+}
+.shipping-info-details {
+  color: #888;
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+.shipping-courier {
+  color: #222;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+.shipping-tracking-link {
+  color: #3b82f6;
+  text-decoration: underline;
+  font-size: 1.2rem;
+}
+.order-map {
+  flex: 2;
+  min-width: 320px;
+}
+.order-map iframe {
+  width: 100%;
+  height: 220px;
+  border: 0;
+  border-radius: 12px;
+}
+
+.order-progress-fill {
+  transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+
+@media (max-width: 1000px) {
+  .track-order-container {
+    padding: 24px 8px 16px 8px;
+  }
+  .order-summary-box {
+    flex-direction: column;
+    gap: 16px;
+    padding: 18px 8px;
+  }
+  .order-shipping-map-row {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .order-map iframe {
+    height: 180px;
+  }
+} 

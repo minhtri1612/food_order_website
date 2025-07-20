@@ -1,0 +1,21 @@
+<div class="main-content">
+  <div class="top-bar">
+    <div class="welcome">
+      <span>✨ Welcome!</span>
+    </div>
+    <div class="location">
+      <img src="/img/location.svg" alt="Location Icon" class="location-icon">
+      <span> {{user.location}}</span>
+      <a href="#!" class="change-location">Change Location</a>
+    </div>
+    <div class="cart">
+      <div class="cart-item"><img src="/img/full shopping basket.svg" alt="Cart"></div>
+      <div class="divider"></div>
+      <div class="cart-item">{{cart.items}} Items</div>
+      <div class="divider"></div>
+      <div class="cash">${{cart.total}}</div>
+      <div class="divider"></div>
+      <div class="cart-item"><button class="dropdown-btn">Checkout</button></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<section class="statistics">
+  <div class="main-content">
+    <div class="stats-container">
+      {{#each statistics}}
+        <div class="stat-item">
+          <h3>{{this.number}}</h3>
+          <p>{{this.label}}</p>
+        </div>
+        {{#unless @last}}
+          <div class="divider"></div>
+        {{/unless}}
+      {{/each}}
+    </div>
+  </div>
+</section>
