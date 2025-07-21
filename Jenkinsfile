@@ -23,7 +23,7 @@ pipeline {
             }
         }
 
-        stage('AWS'){
+        stage('Deploy to AWS'){
             agent{
                 docker{
                     image 'amazon/aws-cli'
@@ -34,10 +34,11 @@ pipeline {
             steps {
               withCredentials([usernamePassword(credentialsId: 'fd2cd5c2-7196-433d-8fad-3cec9cd8d460', passwordVariable: 'AWS_SECRET_ACCESS_KEY', usernameVariable: 'AWS_ACCESS_KEY_ID')]) {
                   sh '''
-                      aws --version
-                      aws s3 ls
-                      aws ecs register-task-definition --cli-input-json file://aws/task-definition.json
-
+                    aws --version
+                    aws s3 ls
+                    LATEST_TD_REVISION=$(aws ecs register-task-definition --cli-input-json file://aws/task-definition.json | jq '.taskDefinition.revision')
+                    echo $LATEST_TD_REVISION
+                    aws ecs update-service --cluster food-cluster --service food-website-service --task-definition order-web:$LATEST_TD_REVISION
                   '''
               }
             }
