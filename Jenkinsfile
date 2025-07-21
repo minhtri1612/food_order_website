@@ -24,7 +24,7 @@ pipeline {
         }
 
         stage('Deploy to AWS'){
-            agent{
+            agent {
                 docker{
                     image 'amazon/aws-cli'
                     args "--entrypoint=''"
@@ -36,7 +36,7 @@ pipeline {
                   sh '''
                     aws --version
                     aws s3 ls
-                    LATEST_TD_REVISION=$(aws ecs register-task-definition --cli-input-json file://aws/task-definition.json)
+                    LATEST_TD_REVISION=$(aws ecs register-task-definition --cli-input-json file://aws/task-definition.json --query 'taskDefinition.revision' --output text)
                     echo $LATEST_TD_REVISION
                     aws ecs update-service --cluster my_order_app --service food-website-service --task-definition order-web:$LATEST_TD_REVISION
                   '''
