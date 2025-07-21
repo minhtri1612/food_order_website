@@ -10,19 +10,17 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
-            agent {
-                docker {
-                    image 'node:18-alpine'
-                    reuseNode true
-                }
-            }
+        stage('Build App') {
+            agent { docker { image 'node:18-alpine'; reuseNode true } }
             steps {
-                sh '''
-                    ls -la
-                    node --version
-                    npm --version
-                '''
+                sh 'npm install'
+            }
+        }
+
+        stage('Test') {
+            agent { docker { image 'node:18-alpine'; reuseNode true } }
+            steps {
+                sh 'npm test' // Fail pipeline if tests fail
             }
         }
 
@@ -50,5 +48,17 @@ pipeline {
         }
 
 
+    }
+
+    post {
+        always {
+            echo 'Pipeline execution complete.'
+        }
+        success {
+            echo 'Deployment successful.'
+        }
+        failure {
+            echo 'Deployment failed.'
+        }
     }
 }
