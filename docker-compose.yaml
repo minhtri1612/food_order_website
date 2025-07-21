@@ -25,9 +25,9 @@ services:
       - .env
     depends_on:
       - mysql
-
     volumes:
       - .:/app  
+      - /app/node_modules  
 
 volumes:
   mysql-data:
