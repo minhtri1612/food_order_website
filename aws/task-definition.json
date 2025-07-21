@@ -2,7 +2,7 @@
     "requiresCompatibilities": [
         "FARGATE"
     ],
-    "family": "",
+    "family": "order-web",
     "containerDefinitions": [
         {
             "name": "",
