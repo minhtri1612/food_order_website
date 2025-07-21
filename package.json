@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node src/index.js",
     "watch": "sass --watch src/resources/scss/app.scss  src/public/css/app.css"
   },
@@ -21,6 +21,7 @@
     "slugify": "^1.6.6"
   },
   "devDependencies": {
+    "jest": "^30.0.4",
     "nodemon": "^3.1.9",
     "sass": "^1.86.3",
     "tailwindcss": "^4.1.4"
