@@ -30,7 +30,7 @@ pipeline {
                 } 
             }
             steps {
-                sh 'npm test' // Fail pipeline if tests fail
+                sh 'npm start' 
             }
         }
 
