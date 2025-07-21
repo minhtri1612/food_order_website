@@ -38,7 +38,7 @@ pipeline {
                     aws s3 ls
                     LATEST_TD_REVISION=$(aws ecs register-task-definition --cli-input-json file://aws/task-definition.json | jq '.taskDefinition.revision')
                     echo $LATEST_TD_REVISION
-                    aws ecs update-service --cluster food-cluster --service food-website-service --task-definition order-web:$LATEST_TD_REVISION
+                    aws ecs update-service --cluster my_order_app --service food-website-service --task-definition order-web:$LATEST_TD_REVISION
                   '''
               }
             }
