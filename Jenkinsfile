@@ -4,6 +4,9 @@ pipeline {
     environment{
         APP_NAME = 'food-website'
         AWS_DEFAULT_REGION = 'ap-southeast-2'
+        AWS_ECS_CLUSTER = 'my_order_app'
+        AWS_ECS_SERVICE = 'food-website-service'
+        AWS_ECS_TASK_DEFINITION = 'order-web'
     }
 
     stages {
@@ -38,7 +41,9 @@ pipeline {
                     aws s3 ls
                     LATEST_TD_REVISION=$(aws ecs register-task-definition --cli-input-json file://aws/task-definition.json --query 'taskDefinition.revision' --output text)
                     echo $LATEST_TD_REVISION
-                    aws ecs update-service --cluster my_order_app --service food-website-service --task-definition order-web:$LATEST_TD_REVISION
+                    aws ecs update-service --cluster $AWS_ECS_CLUSTER --service $AWS_ECS_SERVICE --task-definition $AWS_ECS_TASK_DEFINITION:$LATEST_TD_REVISION
+                    aws ecs wait services-stable --cluster $AWS_ECS_CLUSTER --services $AWS_ECS_SERVICE
+
                   '''
               }
             }
